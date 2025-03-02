@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-function WaitingPage() {
+export default function WaitingPage() {
   const navigate = useNavigate();
   const location = useLocation();
   const { phoneNumber, emergencyType } = location.state || {};
@@ -83,5 +83,3 @@ function WaitingPage() {
     </div>
   );
 }
-
-export default WaitingPage;
