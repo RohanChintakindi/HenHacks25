@@ -11,19 +11,19 @@ CORS(app)
 def call_fire():
     data = request.get_json()
     num = data.get("num")
-    return make_call_fire(num)
+    make_call_fire(num)
 
 @app.route('/call-medical', methods=['POST'])
 def call_medical():
     data = request.get_json()
     num = data.get("num")
-    return make_call_medical(num)
+    make_call_medical(num)
 
 @app.route('/call-traffic', methods=['POST'])
 def call_traffic():
     data = request.get_json()
     num = data.get("num")
-    return make_call_traffic(num)
+    make_call_traffic(num)
 
 if __name__ == '__main__':
     app.run(debug=True)

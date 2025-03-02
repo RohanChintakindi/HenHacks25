@@ -1,15 +1,12 @@
-import React from 'react';
-import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Shield, Clock, MapPin, Phone, Users, Zap, AlertTriangle } from 'lucide-react';
 import ScoreCard from '../components/ScoreCard';
-import WaitingPage from './WaitingPage';
 
 function ScorePage() {
   const navigate = useNavigate();
   const location = useLocation();
   const { emergencyType } = location.state || { emergencyType: 'Emergency' };
-  const [isWaiting, setIsWaiting] = useState(true);
+
   // Generate a random overall score between 75 and 95
   const overallScore = Math.floor(Math.random() * 21) + 75;
 
@@ -60,7 +57,6 @@ function ScorePage() {
   };
 
   return (
-    (isWaiting) ? <WaitingPage /> :
     <>
       <div className="text-center max-w-4xl mx-auto mb-16">
         <h1 className="text-6xl font-bold mb-8 pb-4">

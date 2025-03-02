@@ -17,14 +17,6 @@ export default function WaitingPage() {
     });
   };
 
-  React.useEffect(() => {
-    const timer = setTimeout(() => {
-      handleContinue();
-    }, 30000); // 30 seconds
-
-    return () => clearTimeout(timer);
-  }, []);
-
   // Update elapsed time every second
   React.useEffect(() => {
     const interval = setInterval(() => {
@@ -84,6 +76,10 @@ export default function WaitingPage() {
             Call Duration: <span className="font-mono">{formatTime(elapsedTime)}</span>
           </p>
         </div>
+        <button onClick={handleContinue}
+          className="mt-8 bg-[#4318D1] hover:bg-[#7451E6] text-white px-8 py-3 rounded-md transition-all duration-300 font-medium">
+          View Emergency Score
+        </button>
       </div>
     </div>
   );

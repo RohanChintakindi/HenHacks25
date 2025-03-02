@@ -16,9 +16,7 @@ function EmergencyPage() {
 
   const navigate = useNavigate();
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [selectedEmergency, setSelectedEmergency] = useState<string | null>(
-    null
-  );
+  const [selectedEmergency, setSelectedEmergency] = useState<string | null>(null);
   const [phoneError, setPhoneError] = useState(false);
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,7 +40,7 @@ function EmergencyPage() {
       } else if (selectedEmergency === "Traffic Accident") {
         make_call("traffic", phoneNumber);
       }
-      navigate("/score", {
+      navigate("/waiting", {
         state: {
           phoneNumber,
           emergencyType: selectedEmergency,
