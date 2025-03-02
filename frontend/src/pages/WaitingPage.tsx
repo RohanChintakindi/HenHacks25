@@ -42,7 +42,7 @@ export default function WaitingPage() {
           </span>
         </h1>
         <p className="text-xl text-gray-400">
-          Please stay on this page while we connect you with emergency services
+          Please stay on this page while the call is continuing
         </p>
       </div>
 
@@ -73,12 +73,9 @@ export default function WaitingPage() {
         <div className="flex items-center justify-center space-x-2 mb-4">
           <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
           <p className="text-lg text-white">
-            Connecting to emergency services... <span className="font-mono">{formatTime(elapsedTime)}</span>
+            Call Duration: <span className="font-mono">{formatTime(elapsedTime)}</span>
           </p>
         </div>
-        <p className="text-gray-400 text-sm mb-8">
-          Your emergency details are being processed. Help is on the way.
-        </p>
       </div>
     </div>
   );

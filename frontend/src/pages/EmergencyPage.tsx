@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import EmergencyTypeCard from "../components/EmergencyTypeCard";
 import axios from "axios";
+import { Flame, Cross, Car } from 'lucide-react';
 
 function EmergencyPage() {
   const make_call = async (type: string) => {
@@ -55,12 +56,12 @@ function EmergencyPage() {
       <div className="text-center max-w-4xl mx-auto mb-16">
         <h1 className="text-6xl font-bold mb-8 pb-4">
           <span className="bg-gradient-to-r from-[#4318D1] to-[#A78BFA] inline-block text-transparent bg-clip-text">
-            Choose Your Emergency Type
+            Choose An Emergency Type
           </span>
         </h1>
         <p className="subtitle text-xl text-gray-400 mb-12">
-          Select the type of emergency and enter your contact details for
-          immediate assistance
+          Select the type of emergency you want to respond to<br></br>
+          and enter your contact details for a training session
         </p>
       </div>
 
@@ -97,16 +98,22 @@ function EmergencyPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
         <EmergencyTypeCard
+        color='linear-gradient(90deg,rgb(180, 56, 42) 0%, rgb(197, 165, 48) 100%)'
+          icon={<Flame className="text-white" size={36} />}
           title="Fire Emergency"
           isSelected={selectedEmergency === "Fire Emergency"}
           onClick={() => setSelectedEmergency("Fire Emergency")}
         />
         <EmergencyTypeCard
+        color='linear-gradient(90deg,rgb(158, 16, 0) 0%, rgb(59, 0, 0) 100%)'
+          icon={<Cross className="text-white" size={36} />}
           title="Medical Emergency"
           isSelected={selectedEmergency === "Medical Emergency"}
           onClick={() => setSelectedEmergency("Medical Emergency")}
         />
         <EmergencyTypeCard
+        color='linear-gradient(90deg,rgb(160, 16, 0) 0%, rgb(0, 41, 155) 100%)'
+          icon={<Car className="text-white" size={36} />}
           title="Traffic Accident"
           isSelected={selectedEmergency === "Traffic Accident"}
           onClick={() => setSelectedEmergency("Traffic Accident")}

@@ -1,11 +1,14 @@
 import React from 'react';
-import { HelpCircle } from 'lucide-react';
 
 function EmergencyTypeCard({ 
+  color,
+  icon,
   title, 
   isSelected = false, 
   onClick 
-}: { 
+}: {
+  color: string,
+  icon: React.ReactNode, 
   title: string, 
   isSelected?: boolean, 
   onClick?: () => void 
@@ -19,10 +22,8 @@ function EmergencyTypeCard({
       }`}
       onClick={onClick}
     >
-      <div className={`p-3 rounded-md inline-block mb-4 ${
-        isSelected ? "bg-indigo-500" : "bg-indigo-600"
-      }`}>
-        <HelpCircle className="text-white" size={24} />
+      <div style={{ backgroundImage: color }} className={`p-3 rounded-md inline-block mb-4`}>
+        {icon}
       </div>
       <h3 className="text-xl font-semibold">{title}</h3>
     </div>
