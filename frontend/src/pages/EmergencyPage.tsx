@@ -5,9 +5,9 @@ import axios from "axios";
 import { Flame, Cross, Car } from "lucide-react";
 
 function EmergencyPage() {
-  const make_call = async (type: string) => {
+  const make_call = async (type: string, num: string) => {
     try {
-      const response = await axios.post(`http://127.0.0.1:5000/call-${type}`);
+      const response = await axios.post(`http://127.0.0.1:5000/call-${type}`, { num });
       alert(response.data.message); // Show the response message
     } catch (error) {
       console.error("Error making the call:", error);
@@ -36,11 +36,11 @@ function EmergencyPage() {
   const handleSubmit = () => {
     if (isFormValid) {
       if (selectedEmergency === "Fire Emergency") {
-        make_call("fire");
+        make_call("fire", phoneNumber);
       } else if (selectedEmergency === "Medical Emergency") {
-        make_call("medical");
+        make_call("medical", phoneNumber);
       } else if (selectedEmergency === "Traffic Accident") {
-        make_call("traffic");
+        make_call("traffic", phoneNumber);
       }
       navigate("/score", {
         state: {
@@ -56,12 +56,12 @@ function EmergencyPage() {
       <div className="text-center max-w-4xl mx-auto mb-16">
         <h1 className="text-6xl font-bold mb-8 pb-4">
           <span className="bg-gradient-to-r from-[#4318D1] to-[#A78BFA] inline-block text-transparent bg-clip-text">
-            Choose Your Emergency Type
+            Choose An Emergency Type
           </span>
         </h1>
         <p className="subtitle text-xl text-gray-400 mb-12">
-          Select the type of emergency and enter your contact details for
-          immediate assistance
+          Select the type of emergency you want to respond to<br></br>
+          and enter your contact details for a training session
         </p>
       </div>
 

@@ -1,20 +1,29 @@
-from flask import Flask
-from emergency_calls import make_call_fire, make_call_medical, make_call_traffic_accident
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+from emergency_calls import make_call_fire, make_call_medical, make_call_traffic
 import json
-app = Flask(__name__)
+import requests
 
+app = Flask(__name__)
+CORS(app)
 
 @app.route('/call-fire', methods=['POST'])
 def call_fire():
-    return make_call_fire()
+    data = request.get_json()
+    num = data.get("num")
+    return make_call_fire(num)
 
 @app.route('/call-medical', methods=['POST'])
 def call_medical():
-    return make_call_medical()
+    data = request.get_json()
+    num = data.get("num")
+    return make_call_medical(num)
 
-@app.route('/call-traffic-accident', methods=['POST'])
-def call_traffic_accident():
-    return make_call_traffic_accident()
+@app.route('/call-traffic', methods=['POST'])
+def call_traffic():
+    data = request.get_json()
+    num = data.get("num")
+    return make_call_traffic(num)
 
 if __name__ == '__main__':
     app.run(debug=True)

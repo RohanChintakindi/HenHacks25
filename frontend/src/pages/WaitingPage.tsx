@@ -17,6 +17,14 @@ export default function WaitingPage() {
     });
   };
 
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      handleContinue();
+    }, 30000); // 30 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
   // Update elapsed time every second
   React.useEffect(() => {
     const interval = setInterval(() => {

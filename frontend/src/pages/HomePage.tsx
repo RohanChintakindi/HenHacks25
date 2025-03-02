@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Cpu, ArrowUpRight, Zap } from 'lucide-react';
 import FeatureCard from '../components/FeatureCard';
