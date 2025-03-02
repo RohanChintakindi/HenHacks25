@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4f46e5;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4338ca;
+}
+
+/* Animated gradient */
+@keyframes gradient {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+.gradient-animation {
+  background: linear-gradient(
+        to right,
+        #4318D1,
+        #A78BFA,
+        #4318D1
+  );
+  background-size: 200% auto;
+  animation: gradient 3s linear infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Fix for gradient text cutoff */
+h1 span.bg-clip-text {
+  padding-bottom: 0.15em;
+  display: inline-block;
+}
+
+.subtitle {
+  margin-top: -1.75em;
+}
+
+/* Custom animation delays */
+.animate-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animate-delay-600 {
+  animation-delay: 600ms;
+}
+
+/* Custom animation durations */
+.animate-duration-2000 {
+  animation-duration: 2000ms;
+}
+
+.animate-duration-3000 {
+  animation-duration: 3000ms;
+}
